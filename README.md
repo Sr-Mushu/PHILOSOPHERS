@@ -1,2 +1,7 @@
 # PHILOSOPHERS
-In this project, you will learn the basics of threading a process, how to create threads and l discover mutexes all in C..
+
+##
+Summary:<br>
+In this project, I will learn the basics of threading a process,<br>
+and how to create threads in C as well discover mutexes.<br>
+<br>
