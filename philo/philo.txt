@@ -1,0 +1,93 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/24 15:00:55 by dagabrie          #+#    #+#             */
+/*   Updated: 2023/08/24 16:21:06 by dagabrie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <pthread.h>
+#include <stdio.h>
+
+typedef struct s_thread
+{
+	int				*num;
+	int				name;
+	pthread_mutex_t	*mutex;
+}					t_thread;
+
+void	*rotina1(void *p)
+{
+	t_thread	*arg;
+
+	arg = (t_thread *)p;
+	pthread_mutex_lock(arg->mutex);
+	printf("Nome:%i, Num: %i\n", arg->name, (++*arg->num));
+	pthread_mutex_unlock(arg->mutex);
+    return (0);
+}
+
+/*void* rotina2(void* p){
+	int i = 3;
+	printf("Received value: %i", *(int*)p);
+	p = &i;
+}*/
+
+int	main(void)
+{
+	pthread_t		thread1;
+	pthread_t		thread2;
+	int				j;
+	pthread_mutex_t	i;
+	t_thread		p_thread1;
+	t_thread		p_thread2;
+
+	j = 5;
+	pthread_mutex_init(&i, NULL);
+	p_thread1.num = &j;
+    p_thread1.name = 1;
+    p_thread1.mutex = &i;
+    p_thread2.num = &j;
+    p_thread2.name = 2;
+    p_thread2.mutex = &i;
+	pthread_create(&thread1, NULL, &rotina1, (void *)&p_thread1);
+	pthread_create(&thread2, NULL, &rotina1, (void *)&p_thread2);
+	pthread_join(thread1, 0);
+	pthread_join(thread2, 0);
+	return (0);
+}
+
+// #include <stdio.h>
+// #include <string.h>
+// #include <pthread.h>
+
+// // Global variable:
+// int i = 2;
+
+// void* foo(void* p){
+//   // Print value received as argument:
+//   printf("Value recevied as argument in starting routine: ");
+//   printf("%i\n", * (int*)p);
+
+//   // Return reference to global variable:
+//   pthread_exit(&i);
+// }
+
+// int main(void){
+//   // Declare variable for thread's ID:
+//   pthread_t id;
+
+//   int j = 1;
+//   pthread_create(&id, NULL, foo, &j);
+
+//   int* ptr;
+
+//   // Wait for foo() and retrieve value in ptr;
+//   pthread_join(id, (void**)&ptr);
+//   printf("Value recevied by parent from child: ");
+//   printf("%i\n", *ptr);
+// }
