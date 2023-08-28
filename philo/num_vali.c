@@ -6,7 +6,7 @@
 /*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:39:36 by dagabrie          #+#    #+#             */
-/*   Updated: 2023/08/24 20:22:43 by dagabrie         ###   ########.fr       */
+/*   Updated: 2023/08/25 13:43:44 by dagabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int     max_min_int(char **argv, int num)
         j = 1;
         while (j < num)
         {
-                if (2147483647 < ft_atoi(argv[j]) || -2147483648 > ft_atoi(argv[j]))
+                if (2147483647 < ft_atoi(argv[j]) || 0 > ft_atoi(argv[j]))
                 {
                         write (2, "Error\n", 7);
                         return (0);
