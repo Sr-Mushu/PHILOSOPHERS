@@ -6,7 +6,7 @@
 /*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:40:39 by dagabrie          #+#    #+#             */
-/*   Updated: 2023/08/25 15:33:18 by dagabrie         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:43:51 by dagabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,13 @@ typedef struct s_public_data
 	int			eat;
 	int			think;
 	int			sleep;
-	int			num_data;
-	int			tmp_id;
+	pthread_mutex_t	*mutex;
 }				t_public_data;
+
 
 typedef struct s_private_data
 {
 	int				id;
-	pthread_mutex_t	*mutex;
 }				t_private_data;
 
 // ft_atoi.c

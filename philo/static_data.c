@@ -6,14 +6,14 @@
 /*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:11:33 by dagabrie          #+#    #+#             */
-/*   Updated: 2023/08/24 20:13:40 by dagabrie         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:35:50 by dagabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_data *data(void)
+t_public_data *data(void)
 {
-    static t_data data;
+    static t_public_data data;
     return(&data);
 }
