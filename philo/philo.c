@@ -6,7 +6,7 @@
 /*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:40:01 by dagabrie          #+#    #+#             */
-/*   Updated: 2023/08/25 19:15:27 by dagabrie         ###   ########.fr       */
+/*   Updated: 2023/08/28 18:14:30 by dagabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void creat_thread()
 {
 	
 }
+
+#ok
 
 int main(int argc,char **argv){
     
