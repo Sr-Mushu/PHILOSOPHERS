@@ -3,92 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
+/*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:40:01 by dagabrie          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/08/29 18:28:47 by dagabrie         ###   ########.fr       */
-=======
-/*   Updated: 2023/08/28 20:43:49 by anlima           ###   ########.fr       */
->>>>>>> de71a01a1a8106b0609810a758ba6b8f83ea5656
+/*   Updated: 2023/08/31 15:18:25 by dagabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-<<<<<<< HEAD
-void	*routine(void *ok)
+void	*routine(void *x)
 {
-	int	i;
+	x++;
+	t_public_data	data;
+
 	
-	ok++;
-	i = 0;
-	while (i < 5)
+	pthread_mutex_lock(public_data()->access);
+	data.id = public_data()->id++;
+	data.eat = public_data()->eat;
+	data.sleep = public_data()->sleep;
+	data.think = public_data()->think;
+	pthread_mutex_unlock(public_data()->access);
+	while (1)
 	{
 		pthread_mutex_lock(public_data()->access);
-		printf("hi is : x vez : %d\n", i);
-		i++;
+		printf("eating %d \n",data.id);
+		sleep(data.eat);
 		pthread_mutex_unlock(public_data()->access);
-=======
-void	*routine(void *id_ptr)
-{
-	int	i;
-	int	*id;
-
-	id = (int *)id_ptr;
-	i = 0;
-	while (i < 5)
-	{
-		pthread_mutex_lock(data()->mutex);
-		printf("hi is : %d vez : %d\n", *id, i);
-		usleep(100);
-		i++;
-		pthread_mutex_unlock(data()->mutex);
->>>>>>> de71a01a1a8106b0609810a758ba6b8f83ea5656
+		printf("sleeping %d \n",data.id);
+		sleep(data.sleep);
+		printf("thinking %d \n",data.id);
+		sleep(data.think);
 	}
 	return (0);
 }
 
-void	create_thread(pthread_t *threads)
+void	create_thread(pthread_t *threads,int num)
 {
 	int	i;
-<<<<<<< HEAD
 
 	i = 0;
-	while (i <= 4)
+	while (i <= num)
 	{
 		pthread_create(&threads[i], NULL, routine, NULL);
-=======
-	int	id_values[4];
-
-	i = 0;
-	while (i < 4)
-	{
-		id_values[i] = i;
-		usleep(500);
-		pthread_create(&threads[i], NULL, routine, &id_values[i]);
->>>>>>> de71a01a1a8106b0609810a758ba6b8f83ea5656
 		i++;
 	}
 }
 
-int	main(void)
+int	main(int argc,char **argv)
 {
 	pthread_mutex_t	i;
 	pthread_t		*threads;
 	int				id;
 
-	data()->mutex = &i;
+	argc++;
+	public_data()->eat = atoi(argv[2]);
+	public_data()->sleep = atoi(argv[3]);
+	public_data()->think = atoi(argv[4]);
+	public_data()->access = &i;
 	pthread_mutex_init(&i, NULL);
-	threads = (pthread_t *)malloc(sizeof(pthread_t) * 4);
-	create_thread(threads);
+	threads = (pthread_t *)malloc(sizeof(pthread_t) * atoi(argv[1]));
+	
+	create_thread(threads,atoi(argv[1]));
 	id = 0;
-<<<<<<< HEAD
-	while (id <= 4)
+	while (id <= atoi(argv[1]))
 		pthread_join(threads[id++], NULL);
 }
-=======
-	while (id < 4)
-		pthread_join(threads[id++], NULL);
-}
->>>>>>> de71a01a1a8106b0609810a758ba6b8f83ea5656

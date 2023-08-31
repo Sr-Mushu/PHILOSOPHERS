@@ -6,7 +6,7 @@
 /*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:40:39 by dagabrie          #+#    #+#             */
-/*   Updated: 2023/08/29 18:27:45 by dagabrie         ###   ########.fr       */
+/*   Updated: 2023/08/29 20:58:47 by dagabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int				ft_startsign(int character);
 
 // static_data.c
 t_public_data	*public_data(void);
-t_private_data	*private_data(void)
+t_private_data	*private_data(void);
 
 // num_vali.c
 int				validacion(int numb_arg, char **arg);
