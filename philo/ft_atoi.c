@@ -6,7 +6,7 @@
 /*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:43:05 by dagabrie          #+#    #+#             */
-/*   Updated: 2023/08/24 20:27:46 by dagabrie         ###   ########.fr       */
+/*   Updated: 2023/09/03 19:18:08 by dagabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,6 @@ int     ft_isdigit(int character)
         if (character < '0' || character > '9')
                 return (0);
         return (1);
-}
-
-char    is_positive(char character)
-{
-        return (character == '+');
-}
-
-char    is_negative(char character)
-{
-        return (character == '-');
 }
 
 char    is_space(char character)
@@ -46,9 +36,10 @@ int     ft_atoi(const char *string)
         count = 0;
         while (is_space(string[count]) == 1)
                 count++;
-        if (is_negative(string[count]) == 1 || is_positive(string[count]) == 1)
+        if (string[count] == '-' || string[count] == '+')
         {
-                negative = is_negative(string[count]);
+                if (string[count] == '-')
+                        negative = 1;
                 count++;
         }
         while (ft_isdigit(string[count]) == 1)
