@@ -6,7 +6,7 @@
 /*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:40:39 by dagabrie          #+#    #+#             */
-/*   Updated: 2023/09/03 19:26:11 by dagabrie         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:07:31 by dagabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_table
 
 //================={philos}=======================//
 
+
 void			*dinner(void);
 
 bool			end_dinner(void);
@@ -91,18 +92,18 @@ int				exit_philo(void);
 int				exit_message(void);
 //================={data}=========================//
 
+//returns a static variable t_chair address;
 t_chair					*db_chair(void);
 
+//returns a static variable t_table address;
 t_table					*db_table(void);
 
 //================={utiliti}======================//
 
-// ft_atoi.c
-
-int						ft_atoi(const char *string);
 
 // ft_utiliti.c
 
+int						ft_atoi(const char *string);
 int						ft_isdigit(int character);
 int						ft_startsign(int character);
 

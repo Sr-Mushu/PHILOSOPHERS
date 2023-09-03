@@ -5,9 +5,8 @@ CFLAGS	=	-g -Wall -Werror -Wextra -pthread
 
 SRC		=	philo.c \
 	static_data.c	\
-	ft_atoi.c		\
 	num_vali.c		\
-	ft_utiliti.c
+	utiliti.c
 
 OBJ		=	$(SRC:.c=.o)
 
