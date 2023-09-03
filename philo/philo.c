@@ -6,7 +6,7 @@
 /*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:40:01 by dagabrie          #+#    #+#             */
-/*   Updated: 2023/09/03 20:12:32 by dagabrie         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:28:47 by dagabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ long	imer(void)
 // argv 4 number_of_times_each_philosopher_must_eat (Opecional.)
 int	main(int argc,char **argv)
 {
-		t_table	*table;
+	t_table	*table;
 
+	table = db_table();
 	table = (t_table *)malloc(sizeof(t_table));
 	if (!table)
 		exit_philo();
@@ -41,6 +42,6 @@ int	main(int argc,char **argv)
 	if (set_table(table) != 0)
 		return (exit_philo());
 	if (start_dinner(table) != 0)
-		return (exit_message(table, THREAD, "Error while making thread"));
-	return (exit_philo(table, SUCCESS));
+		return (exit_message());
+	return (exit_philo());
 }
