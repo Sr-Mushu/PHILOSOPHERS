@@ -6,7 +6,7 @@
 /*   By: dagabrie <dagabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:40:01 by dagabrie          #+#    #+#             */
-/*   Updated: 2023/09/03 20:29:54 by dagabrie         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:51:28 by dagabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 long	imer(void)
 {
 	struct timeval	val;
-
+	
 	gettimeofday(&val, 0);
 	return (val.tv_sec * 1000000L + val.tv_usec);
 }
